@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hulu</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+
+
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+
+        height: 300vh;
+    }
+
+    .first-page {
+        height: 100vh;
+        width: 100%;
+        overflow: hidden;
+        background: url("https://cnbl-cdn.bamgrid.com/assets/62ed936344e6ffbac48c896b2bd327fe171521dd941b6ddc8402e2eae50116fc/original");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: bottom left;
+    }
+
+    #logo {
+        height: 50px;
+        width: 70px;
+        object-fit: contain;
+
+
+
+    }
+
+    #logo:hover {
+        cursor: pointer;
+    }
+
+    .nav {
+        display: flex;
+        align-items: center;
+        height: 50px;
+        padding: 10px 40px;
+
+        justify-content: space-between;
+        font-family: Helvetica, arial, sans-serif;
+        text-transform: uppercase;
+        text-decoration: none;
+        font-weight: 600;
+        color: rgb(168, 175, 189);
+
+    }
+
+    a {
+        text-decoration: none;
+        color: rgb(168, 175, 189);
+
+    }
+
+    .login a {
+        padding: 10px 20px;
+        transition: 1s;
+        border-radius: 5px;
+    }
+
+    .login a:hover {
+        cursor: pointer;
+        color: white;
+        background-color: rgb(50, 56, 67);
+    }
+
+    #left-box-hulu {
+        height: 100%;
+        width: 30%;
+        object-fit: contain;
+
+    }
+
+    .left-box h1 {
+        color: rgb(0, 237, 130);
+        font-family: Helvetica, sans-serif;
+        font-size: 12px;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    .left-box p {
+        font-size: 150%;
+        font-family: Helvetica, sans-serif;
+        color: white;
+        font-weight: 600;
+        width: 186px;
+    }
+
+    .left-box-btn {
+        width: 120%;
+        background-color: rgb(0, 237, 130);
+        padding: 10px;
+        text-align: center;
+        font-family: helvetica;
+        color: black;
+        font-weight: 700;
+        text-transform: uppercase;
+        border-radius: 5px;
+        transition: 1s;
+    }
+
+    .left-box-btn:hover {
+        cursor: pointer;
+
+        background-color: rgba(0, 237, 130, 0.527);
+    }
+
+    .left-box {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+
+        width: 20%;
+        align-items: center;
+        justify-content: end;
+    }
+
+    .left-box-img {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+    }
+
+
+    .first-page-boxes {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10%;
+        height: 50%;
+
+
+
+    }
+
+
+    .first-page-content-paras {
+        width: 100%;
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+        justify-content: center;
+        height: 50%;
+        font-family: Arial, Helvetica, sans-serif;
+        text-transform: uppercase;
+        color: greenyellow;
+        z-index: 900;
+        margin-bottom: 20px;
+
+    }
+
+    .first-page-content {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        /* margin-top: 5%; */
+        /* height: 100%;position: absolute;
+        top: 0; */
+        align-items: center;
+
+
+    }
+
+    .first-page-content-wrapper {
+        height: 100%;
+        display: flex;
+        align-items: center;
+    }
+
+    .first-page-content-paras p:nth-child(2) a {
+        font-size: 18px;
+
+        text-decoration: underline;
+    }
+
+    .first-page-content-paras p:nth-child(1) a {
+        font-size: 16px;
+        text-transform: capitalize;
+        text-decoration: underline;
+    }
+
+    .first-page-content-paras p:nth-child(3) a {
+        font-size: 16px;
+        text-transform: capitalize;
+        font-weight: 900;
+        color: white;
+    }
+
+    .first-page-content-circle {
+        border-radius: 100%;
+        border: 2px solid white;
+        width: 70px;
+        height: 70px;
+        color: white;
+        font-size: 30px;
+        display: flex;
+        z-index: 2;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .first-page-content-circle img {
+        height: 50%;
+        width: 50%;
+    }
+
+    .ctr {
+        background-color: rgb(30, 89, 63);
+        color: white;
+        height: 100px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 18px;
+        font-weight: 600;
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 20px;
+        z-index: 0;
+    }
+
+    .ctr h1 {
+        font-size: 18px;
+        text-align: center;
+    }
+
+    .ctr-btn {
+        padding: 12px;
+        width: 20%;
+        text-align: center;
+        border-radius: 5px;
+        border: 2px solid white;
+        color: white;
+    }
+
+    .ctr-btn a {
+        color: white;
+    }
+
+    .ctr-btn:hover {
+        color: black;
+        background-color: rgb(144, 144, 144);
+    }
+
+    .ctr-btn:hover a {
+        color: black;
+
+    }
+
+    .second-page {
+        /* height: 100vh; */
+        color: white;
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: rgb(11, 12, 15);
+
+        padding: 40px;
+    }
+
+    .second-page h2:first-child {
+        color: #00ED82;
+        font-size: 14px;
+    }
+
+    .second-page h3 {
+        text-align: center;
+        font-size: 18px;
+        width: 55%;
+    }
+
+    .second-page h1 {
+        font-size: 48px;
+
+    }
+
+    .second-page-headings {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+    }
+
+    .second-page-box {
+
+        border-radius: 10px;
+        /* height: 70%; 
+       width: 90%; */
+        position: relative;
+
+
+
+
+    }
+
+    .second-page-box-paras {
+        position: absolute;
+
+        top: 20px;
+        left: 30px;
+    }
+
+    .second-page-box img {
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+        object-fit: cover;
+    }
+
+    .second-page-boxes {
+        display: grid;
+        width: 100%;
+        height: 100%;
+        grid-template-columns: 311px 311px 311px 311px;
+        grid-template-rows: 451px;
+        justify-items: center;
+
+        justify-content: center;
+        margin-top: 30px;
+
+        column-gap: 30px;
+        row-gap: 0px;
+
+
+    }
+
+    .second-page-box:hover {
+        border: 3px solid rgb(167, 165, 165);
+    }
+
+    .thirdpage {
+        color: white;
+        background-color: #0B0C0F;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        text-align: center;
+        padding: 90px;
+    }
+
+    .thirdpage h1 {
+        color: rgb(28, 228, 129);
+        font-size: 14px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .thirdpage h2 {
+        color: white;
+        font-size: 48px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    #third-page-first-para {
+        color: white;
+        font-family: Arial, Helvetica, sans-serif;
+        text-align: center;
+        font-size: 18px;
+        width: 70%;
+    }
+
+    #third-page-second-para {
+        color: rgb(157, 158, 159);
+        font-family: Arial, Helvetica, sans-serif;
+        text-align: center;
+        width: 70%;
+        font-size: 10px;
+    }
+
+    .third-page-btn {
+        background-color: #00ED82;
+        font-size: 30px;
+        padding: 20px;
+        font-family: Arial, Helvetica, sans-serif;
+        color: black;
+        text-transform: uppercase;
+        width: 200px;
+        font-weight: 600;
+        border-radius: 5px;
+        font-size: 14px;
+        box-sizing: border-box;
+    }
+
+    .thirdpage a {
+        color: white;
+        text-decoration: underline;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .fourthpage {
+        height: 100vh;
+        background: url("https://cnbl-cdn.bamgrid.com/assets/3ab6ce86baaf4225b072c58fa9497ec949c0c9e284b3958ecda1429b7f3744f9/original");
+        background-size: cover;
+        /* filter: brightness(70%); */
+        color: white;
+        font-family: Arial, Helvetica, sans-serif;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 20px;
+        padding: 20px 0px;
+        padding-left: 15%;
+    }
+
+    .fourthpage-list ul {
+        display: flex;
+        list-style: none;
+        gap: 20px;
+        color: white;
+        font-size: 12px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 900;
+        text-transform: uppercase;
+        cursor: pointer;
+
+    }
+
+    .fourthpage-box-circle {
+        border-radius: 100%;
+        border: 2px solid white;
+        background-color: white;
+        width: 50px;
+        height: 50px;
+        color: white;
+        font-size: 30px;
+        display: flex;
+        z-index: 2;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+    }
+
+
+    .fourthpage-box-circle img {
+        height: 50%;
+        width: 50%;
+        object-fit: contain;
+    }
+
+    .fourthpage-box-circles {
+        display: flex;
+        gap: 20px;
+    }
+
+    #fourthpage-second-para {
+        font-size: 10px;
+        color: rgba(255, 255, 255, 0.6);
+    }
+
+    #fourthpage-first-para {
+        width: 40%;
+        text-align: left;
+        font-size: 18px;
+
+    }
+
+    .fourthpage h1 {
+        font-size: 48px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    .footer{
+        height: 25vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        padding: 50px;
+        background-color: rgb(11,12,15);
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+
+
+    @media screen and (max-width: 767px) {
+
+        .left-box-btn {
+            font-size: 14px;
+            width: 150%;
+        }
+
+
+        #left-box-hulu {
+            width: 50px;
+            height: 28px;
+        }
+
+        .left-box p {
+            font-size: 18px;
+            width: 187%;
+            text-align: center;
+        }
+
+        .first-page-boxes {
+            gap: 25%;
+            justify-content: center;
+            margin-right: 20px;
+            overflow: hidden;
+            align-items: flex-start;
+
+
+        }
+
+
+        .left-box h1 {
+            font-size: 12px;
+            width: 200%;
+            text-align: center;
+        }
+
+
+
+        .first-page {
+            height: 80vh;
+        }
+
+        .ctr-btn {
+            width: 50%;
+        }
+
+        .second-page h1 {
+            font-size: 32px;
+        }
+
+        .second-page h3 {
+            width: 108%;
+        }
+
+        .second-page {
+            padding: 40px 20px;
+
+
+        }
+
+
+        .second-page-boxes {
+            gap: 10px;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+        }
+
+        .second-page-box-paras {
+            font-size: 12px !important;
+        }
+
+        .second-page-box>p {
+            font-size: 8px !important;
+            margin-left: 0px !important;
+        }
+
+        .thirdpage h2 {
+            font-size: 30px;
+        }
+
+        .thirdpage h1 {
+            font-size: 12px;
+        }
+
+        #third-page-first-para {
+            width: 100%;
+        }
+
+        .thirdpage {
+            padding: 90px 10px;
+        }
+
+        .fourthpage {
+            background: url("https://cnbl-cdn.bamgrid.com/assets/7a93b953315e186a518a4aa6dcd3792ecb007b8a5c5b1d540828e8bdfb2614f3/original");
+            background-size: cover;
+            padding-left: 5%;
+            justify-content: flex-start;
+            align-items: center;
+            padding-top: 20%;
+        }
+
+        .fourthpage-list ul {
+            gap: 10px;
+            text-align: center;
+            margin-bottom: 40px;
+
+        }
+
+        #fourthpage-first-para {
+            /* font-size: 13px; */
+            width: 90%;
+            text-align: center;
+        }
+
+        #fourthpage-second-para {
+            width: 90%;
+            text-align: center;
+            font-size: 12px;
+
+        }
+
+        .fourthpage h1 {
+            font-size: 31px;
+        }
+        .footer{
+            font-size: 10px;
+            text-align: center;
+        }
+    }
+
+    @media screen and (max-height: 700px) {
+        .first-page {
+            height: 100vh;
+        }
+    }
+
+    @media screen and (max-width: 1400px) and (min-width: 768px) {
+        .second-page-boxes {
+            gap: 20px;
+            grid-template-columns: 311px 311px;
+            grid-template-rows: 1fr 1fr;
+        }
+    }
+
+    @media screen and (max-width: 500px) {
+        .second-page-box-paras {
+            font-size: 70% !important;
+            top: 10px;
+            left: 10px;
+        }
+
+        .second-page-box-paras p {
+            font-size: 100% !important;
+        }
+
+    }
+</style>
+
+<body>
+    <div class="first-page">
+        <div class="nav">
+            <div class="logo">
+                <img src="Hulu_Logo.svg.png" alt="" id="logo">
+            </div>
+            <div class="login">
+                <a href="/login">Log in</a>
+            </div>
+
+        </div>
+        <div class="first-page-content-wrapper">
+            <div class="first-page-content">
+                <div class="first-page-boxes">
+                    <div class="left-box">
+                        <h1>Disney bundle duo basic</h1>
+                        <div class="left-box-img">
+                            <img src="Hulu_Logo.svg.png" id="left-box-hulu">
+                            <img src="disneylogo.png" alt="" id="left-box-hulu">
+                        </div>
+
+                        <p>Both with ads, for $9.99/month.</p>
+                        <div class="left-box-btn">Get them both</div>
+                    </div>
+                    <div class="left-box">
+                        <h1>Disney bundle duo basic</h1>
+                        <div class="left-box-img">
+                            <img src="Hulu_Logo.svg.png" id="left-box-hulu">
+                            <img src="disneylogo.png" alt="" id="left-box-hulu">
+                            <img src="espn-logo.png" alt="" id="left-box-hulu">
+                        </div>
+
+                        <p>Both with ads, for $9.99/month.</p>
+                        <div class="left-box-btn">Get them both</div>
+                    </div>
+                </div>
+
+                <div class="first-page-content-paras">
+                    <p id="first-page-content-p1"><a href="#">Terms apply</a></p>
+
+                    <p id="first-page-content-p2"><a href="#">Sign up for hulu only</a></p>
+                    <p id="first-page-content-p3"><a href="#">VIEW MORE PLANS</a></p>
+                    <a href="#fourthpage">
+                        <div class="first-page-content-circle">
+                            <img src="down-arrow.png" alt="">
+                        </div>
+                    </a>
+
+                </div>
+
+            </div>
+        </div>
+
+
+
+    </div>
+    <div class="ctr">
+        <h1>BUILD THE PLAN THAT'S RIGHT FOR YOU</h1>
+        <div class="ctr-btn">
+            <a href="#">START BUILDING</a>
+        </div>
+    </div>
+    <div class="second-page">
+        <div class="second-page-headings">
+            <h2>INCLUDED IN ALL PLANS</h2>
+            <h1>All The TV You Love</h1>
+            <h3>Watch full seasons of exclusive streaming series, current-season episodes, hit movies, Hulu Originals,
+                kids shows, and more.</h3>
+        </div>
+        <div class="second-page-boxes">
+            <div class="second-page-box">
+                <img src="img1.png" alt="">
+                <div class="second-page-box-paras">
+
+                    <p style="font-family: Arial, Helvetica, sans-serif; text-transform: capitalize;font-weight: 600;">
+                        Past and current seasons</p>
+                    <P style="font-family: Arial, Helvetica, sans-serif; font-weight: 900; font-size: 20px;">Tv Shows
+                    </P>
+                </div>
+            </div>
+            <div class="second-page-box">
+                <img src="img2.jpeg" alt="">
+                <div class="second-page-box-paras">
+                    <p style="font-family: Arial, Helvetica, sans-serif; text-transform: capitalize;font-weight: 600;">
+                        Past and current seasons</p>
+                    <P style="font-family: Arial, Helvetica, sans-serif; font-weight: 900; font-size: 20px;">Tv Shows
+                    </P>
+                </div>
+            </div>
+            <div class="second-page-box">
+                <img src="img3.png" alt="">
+                <div class="second-page-box-paras">
+                    <p style="font-family: Arial, Helvetica, sans-serif; text-transform: capitalize;font-weight: 600;">
+                        Past and current seasons</p>
+                    <P style="font-family: Arial, Helvetica, sans-serif; font-weight: 900; font-size: 20px;">Tv Shows
+                    </P>
+                </div>
+            </div>
+            <div class="second-page-box">
+                <img src="img4.png" alt="">
+                <div class="second-page-box-paras">
+                    <p style="font-family: Arial, Helvetica, sans-serif; text-transform: capitalize;font-weight: 600;">
+                        Past and current seasons</p>
+                    <P style="font-family: Arial, Helvetica, sans-serif; font-weight: 900; font-size: 20px;">Tv Shows
+                    </P>
+                </div>
+                <p
+                    style="font-size: 10px; text-align: center; color: rgb(157,149,122); margin-top: 10px; margin-left: -50px;">
+                    Premium network add-ons available for an additional cost</p>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="thirdpage">
+        <h1>HULU + LIVE TV, NOW WITH DISNEY+ AND ESPN+, ALL WITH ADS</h1>
+        <h2>Live TV Makes It Better</h2>
+        <p id="third-page-first-para">Get 90+ top channels on Hulu (With Ads) + Live TV with your favorite live sports,
+            news, and events - plus the
+            entire Hulu streaming library. With Unlimited DVR, store Live TV recordings for up to nine months and
+            fast-forward through your DVR content. Access endless entertainment with Disney+ and live sports with ESPN+.
+        </p>
+        <div class="third-page-btn">
+            Get hulu + live tv
+        </div>
+        <p id="third-page-second-para">Hulu (With Ads) + Live TV plan only. $76.99/mo (or then-current, regular monthly
+            price). Regional restrictions, blackouts and Live TV terms apply. Access content from each service
+            separately. Location data required to watch certain content. Unlimited DVR recording is not available for
+            on-demand shows. See details.</p>
+
+        <a href="#">VIEW CHANNELS IN YOUR AREA →</a>
+    </div>
+    <div class="fourthpage" id="fourthpage">
+
+        <div class="fourthpage-list">
+            <ul>
+                <li id="live-sports"
+                    onclick=" document.getElementById('fourthpage').style.background = `url(${temp1})`;document.getElementById('fourthpage').style.backgroundSize = 'cover';  ">
+                    Live sports</li>
+                <li id="breaking-news"
+                    onclick=" document.getElementById('fourthpage').style.background = `url(${temp2})`;document.getElementById('fourthpage').style.backgroundSize = 'cover'; ">
+                    breaking news</li>
+                <li id="biggest-events"
+                    onclick=" document.getElementById('fourthpage').style.background = `url(${temp3})`;document.getElementById('fourthpage').style.backgroundSize = 'cover'; ">
+                    biggest events</li>
+
+            </ul>
+        </div>
+
+        <h1>Live Sports</h1>
+        <p id="fourthpage-first-para">
+            Catch your games at home or on the go. Stream live games from major college and pro leagues including
+            the NCAA®, NBA, NHL, NFL, and more. Includes top local and national sports networks like ABC, CBS Sports
+            Network, ESPN, FOX, FS1, TNT, NFL Network and more.</p>
+
+        <div class="fourthpage-box-circles">
+            <div class="fourthpage-box-circle">
+                <img src="espn-logo.png" alt="">
+            </div>
+            <div class="fourthpage-box-circle">
+                <img src="espn-logo.png" alt="">
+            </div>
+            <div class="fourthpage-box-circle">
+                <img src="espn-logo.png" alt="">
+            </div>
+            <div class="fourthpage-box-circle">
+                <img src="espn-logo.png" alt="">
+            </div>
+        </div>
+
+        <p id="fourthpage-second-para">Live TV plan required. Regional restrictions, blackouts and additional terms
+            apply. See details</p>
+    </div>
+    <div class="footer">
+        <h1>This website was made by Admya Salar</h1>
+    </div>
+    <script>
+        var temp1 = "https://cnbl-cdn.bamgrid.com/assets/3ab6ce86baaf4225b072c58fa9497ec949c0c9e284b3958ecda1429b7f3744f9/original"
+        var temp2 = "https://cnbl-cdn.bamgrid.com/assets/4a3aa8e2de730150aba6be81a274da9d447c513fbb0a788dad007b5fe1e0877a/original"
+        var temp3 = "https://cnbl-cdn.bamgrid.com/assets/1cfd5743e36004288a408e977a0a9e44b57668b2bfdc525956772ce9d8769288/original"
+    </script>
+</body>
+
+</html>
